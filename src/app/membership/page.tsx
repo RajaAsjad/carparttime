@@ -104,7 +104,7 @@ export default function MembershipPage() {
               <option value="webSearch">Web Search</option>
               <option value="other">Other</option>
             </select>
-            <button type="submit" className="btn-primary w-full">
+            <button type="submit" className="btn-primary btn-block">
               Apply
             </button>
           </form>

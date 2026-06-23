@@ -5,26 +5,26 @@ import HeroCanvas from "./HeroCanvas";
 
 export default function VideoBanner() {
   return (
-    <section className="hero-banner relative min-h-[100svh] min-h-[100dvh] w-full overflow-hidden">
-      <video
-        className="absolute inset-0 z-0 h-full w-full object-cover"
-        autoPlay
-        muted
-        loop
-        playsInline
-        poster={ASSETS.video.poster}
-      >
-        <source src={ASSETS.video.webm} type="video/webm" />
-        <source src={ASSETS.video.mp4} type="video/mp4" />
-      </video>
+    <section className="hero-banner relative min-h-[100svh] min-h-[100dvh] w-full">
+      <div className="hero-video-wrap" aria-hidden>
+        <video
+          className="hero-video"
+          autoPlay
+          muted
+          loop
+          playsInline
+          poster={ASSETS.video.poster}
+        >
+          <source src={ASSETS.video.webm} type="video/webm" />
+          <source src={ASSETS.video.mp4} type="video/mp4" />
+        </video>
+      </div>
 
       <div className="hero-overlay absolute inset-0 z-[1]" aria-hidden />
 
       <HeroCanvas />
 
-      <div
-        className="relative z-[3] flex min-h-[100svh] min-h-[100dvh] w-full flex-col justify-end px-5 pb-[max(4rem,var(--safe-bottom))] pt-[calc(var(--nav-height)+var(--safe-top)+2rem)] md:px-10 md:pb-24 lg:px-16"
-      >
+      <div className="relative z-[3] flex min-h-[100svh] min-h-[100dvh] w-full flex-col justify-end px-5 pb-[max(4rem,var(--safe-bottom))] pt-[calc(var(--nav-height)+var(--safe-top)+2rem)] md:px-10 md:pb-24 lg:px-16">
         <p className="mb-3 text-[0.65rem] font-medium uppercase tracking-[0.25em] text-sage md:mb-4 md:text-xs md:tracking-[0.35em]">
           Brooklyn, NY
         </p>
@@ -37,11 +37,11 @@ export default function VideoBanner() {
           An automotive concept space for drivers, collectors, and friends.
           Showroom, lounge, and community — designed by Office of Tangible Space.
         </p>
-        <div className="mt-8 flex w-full flex-col gap-3 sm:mt-10 sm:w-auto sm:flex-row sm:flex-wrap sm:gap-4">
-          <a href="/shop" className="btn-primary w-full sm:w-auto">
+        <div className="mt-8 flex flex-wrap items-center gap-3 sm:mt-10 sm:gap-4">
+          <a href="/shop" className="btn-primary">
             Shop Drops
           </a>
-          <a href="/events" className="btn-outline w-full sm:w-auto">
+          <a href="/events" className="btn-outline">
             View Events
           </a>
         </div>

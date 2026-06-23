@@ -85,7 +85,7 @@ export default function ShopPage() {
                     </span>
                     <a
                       href="mailto:hello@carparttime.com"
-                      className="btn-outline w-full text-center text-xs sm:w-auto"
+                      className="btn-outline text-xs"
                     >
                       Inquire
                     </a>

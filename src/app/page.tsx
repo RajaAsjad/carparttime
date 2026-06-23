@@ -44,7 +44,7 @@ export default function HomePage() {
                 concrete. Vintage cars on rotation, vinyl by Freakout Spot, and
                 programming that spans cars, culture, and community.
               </p>
-              <Link href="/membership" className="btn-outline mt-6 inline-flex w-full sm:mt-8 sm:w-auto">
+              <Link href="/membership" className="btn-outline mt-6 sm:mt-8">
                 Become a Member
               </Link>
             </div>
@@ -139,17 +139,17 @@ export default function HomePage() {
               Drops, events, and inventory updates — straight to your inbox.
             </p>
             <form
-              className="mt-8 flex flex-col gap-3 sm:flex-row"
+              className="newsletter-form mt-8"
               onSubmit={(e) => e.preventDefault()}
             >
               <input
                 type="email"
                 placeholder="Email"
                 required
-                className="input-field flex-1"
+                className="input-field min-w-0"
                 aria-label="Email for newsletter"
               />
-              <button type="submit" className="btn-primary w-full shrink-0 sm:w-auto">
+              <button type="submit" className="btn-primary justify-self-center sm:justify-self-auto">
                 Subscribe
               </button>
             </form>

@@ -100,7 +100,7 @@ export default function CartDrawer() {
               <span className="text-sm uppercase tracking-wider text-cream/60">Total</span>
               <span className="font-display text-xl">{formatPrice(total)}</span>
             </div>
-            <button type="button" className="btn-primary w-full">
+            <button type="button" className="btn-primary btn-block">
               Checkout
             </button>
             <button

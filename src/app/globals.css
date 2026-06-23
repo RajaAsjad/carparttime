@@ -97,27 +97,32 @@ body.menu-open {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 2.75rem;
-  padding: 0.875rem 1.5rem;
+  width: fit-content;
+  max-width: 100%;
+  min-height: 2.5rem;
+  padding: 0.625rem 1.25rem;
   background: var(--mustard);
   color: var(--charcoal);
-  font-size: 0.7rem;
+  font-size: 0.65rem;
   font-weight: 600;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
+  white-space: nowrap;
   transition: background 0.3s, transform 0.2s;
   touch-action: manipulation;
 }
 
 @media (min-width: 640px) {
   .btn-primary {
-    padding: 0.875rem 2rem;
-    letter-spacing: 0.2em;
+    min-height: 2.625rem;
+    padding: 0.75rem 1.5rem;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
   }
 }
 
-.btn-primary.w-full,
-.btn-outline.w-full {
+.btn-primary.btn-block,
+.btn-outline.btn-block {
   width: 100%;
 }
 
@@ -130,22 +135,40 @@ body.menu-open {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 2.75rem;
-  padding: 0.875rem 1.5rem;
+  width: fit-content;
+  max-width: 100%;
+  min-height: 2.5rem;
+  padding: 0.625rem 1.25rem;
   border: 1px solid rgba(240, 235, 227, 0.3);
   color: var(--cream);
-  font-size: 0.7rem;
+  font-size: 0.65rem;
   font-weight: 500;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
+  white-space: nowrap;
   transition: border-color 0.3s, background 0.3s;
   touch-action: manipulation;
 }
 
 @media (min-width: 640px) {
   .btn-outline {
-    padding: 0.875rem 2rem;
-    letter-spacing: 0.2em;
+    min-height: 2.625rem;
+    padding: 0.75rem 1.5rem;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+  }
+}
+
+.newsletter-form {
+  display: grid;
+  gap: 0.75rem;
+  width: 100%;
+}
+
+@media (min-width: 480px) {
+  .newsletter-form {
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
   }
 }
 
@@ -184,6 +207,32 @@ body.menu-open {
 }
 
 /* Hero */
+.hero-banner {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.hero-video-wrap {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.hero-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  object-position: center;
+}
+
 .hero-overlay {
   background: linear-gradient(
     to bottom,

@@ -53,7 +53,7 @@ export default function EventsPage() {
               href="https://lu.ma/calendar/cal-HESIMY29s0r6fKn"
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-outline w-full text-center text-xs sm:w-auto"
+              className="btn-outline text-xs"
             >
               Open on Luma →
             </a>

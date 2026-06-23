@@ -18,8 +18,8 @@ const benefits = [
 
 export default function MembershipPage() {
   return (
-    <main>
-      <section className="relative min-h-[60vh] overflow-hidden pt-32 md:pt-40">
+    <main className="w-full overflow-x-hidden">
+      <section className="relative min-h-[50vh] overflow-hidden pt-[calc(var(--nav-height)+var(--safe-top)+2rem)] sm:min-h-[60vh] md:pt-40">
         <Image
           src={ASSETS.images.membership}
           alt="Car Part Time clubhouse interior"
@@ -29,7 +29,7 @@ export default function MembershipPage() {
           priority
         />
         <div className="hero-overlay absolute inset-0" />
-        <div className="relative z-10 mx-auto max-w-7xl px-5 pb-20 md:px-10 lg:px-16">
+        <div className="relative z-10 page-container pb-16 sm:pb-20">
           <p className="label-text text-sage">Membership</p>
           <h1 className="section-title mt-3 max-w-2xl">Become a member</h1>
           <p className="mt-4 max-w-lg text-cream/75">
@@ -40,7 +40,7 @@ export default function MembershipPage() {
       </section>
 
       <section className="section-pad bg-charcoal">
-        <div className="mx-auto grid max-w-7xl gap-16 px-5 md:grid-cols-2 md:px-10 lg:px-16">
+        <div className="page-container grid gap-10 sm:gap-16 md:grid-cols-2">
           <div>
             <h2 className="font-display text-3xl text-cream">
               &ldquo;Buy a car, stay a while&rdquo;
@@ -52,7 +52,7 @@ export default function MembershipPage() {
             <p className="mt-4 text-sm text-cream/50">{SITE.address}</p>
           </div>
 
-          <div className="border border-cream/10 bg-charcoal-deep p-8">
+          <div className="border border-cream/10 bg-charcoal-deep p-5 sm:p-8">
             <h3 className="text-xs font-medium uppercase tracking-[0.25em] text-sage">
               Programming
             </h3>
@@ -69,10 +69,12 @@ export default function MembershipPage() {
       </section>
 
       <section className="section-pad border-t border-cream/10 bg-charcoal-deep">
-        <div className="mx-auto max-w-xl px-5 md:px-10">
+        <div className="page-container max-w-xl">
           <h2 className="section-title text-center">Membership structure</h2>
-          <div className="mt-10 space-y-4 text-center">
-            <p className="font-display text-5xl text-mustard">$200<span className="text-2xl text-cream/50">/mo</span></p>
+          <div className="mt-8 space-y-4 text-center sm:mt-10">
+            <p className="font-display text-[clamp(2.5rem,12vw,3rem)] text-mustard">
+              $200<span className="text-xl text-cream/50 sm:text-2xl">/mo</span>
+            </p>
             <ul className="space-y-2 text-sm text-cream/60">
               <li>One membership tier</li>
               <li>No initiation fee</li>

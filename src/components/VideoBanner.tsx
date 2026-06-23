@@ -5,7 +5,7 @@ import HeroCanvas from "./HeroCanvas";
 
 export default function VideoBanner() {
   return (
-    <section className="hero-banner relative min-h-[100svh] overflow-hidden">
+    <section className="hero-banner relative min-h-[100svh] min-h-[100dvh] w-full overflow-hidden">
       <video
         className="absolute inset-0 z-0 h-full w-full object-cover"
         autoPlay
@@ -22,24 +22,26 @@ export default function VideoBanner() {
 
       <HeroCanvas />
 
-      <div className="relative z-[3] flex min-h-[100svh] flex-col justify-end px-5 pb-16 pt-32 md:px-10 md:pb-24 lg:px-16">
-        <p className="mb-4 text-xs font-medium uppercase tracking-[0.35em] text-sage">
+      <div
+        className="relative z-[3] flex min-h-[100svh] min-h-[100dvh] w-full flex-col justify-end px-5 pb-[max(4rem,var(--safe-bottom))] pt-[calc(var(--nav-height)+var(--safe-top)+2rem)] md:px-10 md:pb-24 lg:px-16"
+      >
+        <p className="mb-3 text-[0.65rem] font-medium uppercase tracking-[0.25em] text-sage md:mb-4 md:text-xs md:tracking-[0.35em]">
           Brooklyn, NY
         </p>
-        <h1 className="font-display max-w-4xl text-[clamp(2.5rem,8vw,5.5rem)] leading-[0.95] text-cream">
+        <h1 className="font-display max-w-4xl text-[clamp(2.25rem,10vw,5.5rem)] leading-[0.95] text-cream">
           Buy a car,
           <br />
           <span className="text-mustard">stay a while.</span>
         </h1>
-        <p className="mt-6 max-w-lg text-base leading-relaxed text-cream/75 md:text-lg">
+        <p className="mt-4 max-w-lg text-sm leading-relaxed text-cream/75 sm:mt-6 sm:text-base md:text-lg">
           An automotive concept space for drivers, collectors, and friends.
           Showroom, lounge, and community — designed by Office of Tangible Space.
         </p>
-        <div className="mt-10 flex flex-wrap gap-4">
-          <a href="/shop" className="btn-primary">
+        <div className="mt-8 flex w-full flex-col gap-3 sm:mt-10 sm:w-auto sm:flex-row sm:flex-wrap sm:gap-4">
+          <a href="/shop" className="btn-primary w-full sm:w-auto">
             Shop Drops
           </a>
-          <a href="/events" className="btn-outline">
+          <a href="/events" className="btn-outline w-full sm:w-auto">
             View Events
           </a>
         </div>

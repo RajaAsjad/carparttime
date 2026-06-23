@@ -44,7 +44,7 @@ export default function HomePage() {
                 concrete. Vintage cars on rotation, vinyl by Freakout Spot, and
                 programming that spans cars, culture, and community.
               </p>
-              <Link href="/membership" className="btn-outline mt-8 inline-flex">
+              <Link href="/membership" className="btn-outline mt-6 inline-flex w-full sm:mt-8 sm:w-auto">
                 Become a Member
               </Link>
             </div>
@@ -78,10 +78,10 @@ export default function HomePage() {
                         sizes="(max-width: 768px) 100vw, 50vw"
                       />
                     </div>
-                    <div className="mt-5">
-                      <h3 className="font-display text-2xl text-cream">{vehicle.name}</h3>
+                    <div className="mt-4 sm:mt-5">
+                      <h3 className="font-display text-xl text-cream sm:text-2xl">{vehicle.name}</h3>
                       <p className="mt-1 text-sm text-cream/50">{vehicle.subtitle}</p>
-                      <p className="mt-3 text-xl text-mustard">{formatPrice(vehicle.price)}</p>
+                      <p className="mt-2 text-lg text-mustard sm:mt-3 sm:text-xl">{formatPrice(vehicle.price)}</p>
                     </div>
                   </article>
                 ))}
@@ -94,7 +94,7 @@ export default function HomePage() {
           <div className="mx-auto grid max-w-7xl gap-6 px-5 md:grid-cols-2 md:px-10 lg:px-16">
             <Link
               href="/shop"
-              className="cta-block group relative min-h-[280px] overflow-hidden"
+              className="cta-block group relative block min-h-[220px] overflow-hidden sm:min-h-[280px]"
             >
               <Image
                 src={ASSETS.images.services}
@@ -104,15 +104,15 @@ export default function HomePage() {
                 sizes="50vw"
               />
               <div className="cta-overlay" />
-              <div className="relative z-10 flex h-full min-h-[280px] flex-col justify-end p-8">
+              <div className="relative z-10 flex h-full min-h-[220px] flex-col justify-end p-6 sm:min-h-[280px] sm:p-8">
                 <p className="label-text text-cream/70">Shop</p>
-                <h3 className="font-display text-3xl text-cream">Product Drops</h3>
+                <h3 className="font-display text-2xl text-cream sm:text-3xl">Product Drops</h3>
               </div>
             </Link>
 
             <Link
               href="/events"
-              className="cta-block group relative min-h-[280px] overflow-hidden"
+              className="cta-block group relative block min-h-[220px] overflow-hidden sm:min-h-[280px]"
             >
               <Image
                 src={ASSETS.images.archiveMercedes}
@@ -122,9 +122,9 @@ export default function HomePage() {
                 sizes="50vw"
               />
               <div className="cta-overlay" />
-              <div className="relative z-10 flex h-full min-h-[280px] flex-col justify-end p-8">
+              <div className="relative z-10 flex h-full min-h-[220px] flex-col justify-end p-6 sm:min-h-[280px] sm:p-8">
                 <p className="label-text text-cream/70">Events</p>
-                <h3 className="font-display text-3xl text-cream">Programming</h3>
+                <h3 className="font-display text-2xl text-cream sm:text-3xl">Programming</h3>
               </div>
             </Link>
           </div>
@@ -149,7 +149,7 @@ export default function HomePage() {
                 className="input-field flex-1"
                 aria-label="Email for newsletter"
               />
-              <button type="submit" className="btn-primary shrink-0">
+              <button type="submit" className="btn-primary w-full shrink-0 sm:w-auto">
                 Subscribe
               </button>
             </form>

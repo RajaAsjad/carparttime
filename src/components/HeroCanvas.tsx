@@ -18,6 +18,13 @@ export default function HeroCanvas() {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+    const isCoarsePointer = window.matchMedia("(pointer: coarse)").matches;
+
+    if (prefersReducedMotion) return;
+
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
@@ -26,14 +33,16 @@ export default function HeroCanvas() {
     let mouse = { x: -1000, y: -1000 };
 
     const resize = () => {
-      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      const dpr = Math.min(window.devicePixelRatio || 1, isCoarsePointer ? 1.5 : 2);
       const rect = canvas.getBoundingClientRect();
       canvas.width = rect.width * dpr;
       canvas.height = rect.height * dpr;
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
 
-      const count = Math.floor((rect.width * rect.height) / 12000);
-      particles = Array.from({ length: Math.min(count, 80) }, () => ({
+      const density = isCoarsePointer ? 18000 : 12000;
+      const maxParticles = isCoarsePointer ? 35 : 80;
+      const count = Math.floor((rect.width * rect.height) / density);
+      particles = Array.from({ length: Math.min(count, maxParticles) }, () => ({
         x: Math.random() * rect.width,
         y: Math.random() * rect.height,
         vx: (Math.random() - 0.5) * 0.4,
@@ -54,12 +63,14 @@ export default function HeroCanvas() {
         if (p.x < 0 || p.x > rect.width) p.vx *= -1;
         if (p.y < 0 || p.y > rect.height) p.vy *= -1;
 
-        const dx = mouse.x - p.x;
-        const dy = mouse.y - p.y;
-        const dist = Math.sqrt(dx * dx + dy * dy);
-        if (dist < 120) {
-          p.x -= dx * 0.02;
-          p.y -= dy * 0.02;
+        if (!isCoarsePointer) {
+          const dx = mouse.x - p.x;
+          const dy = mouse.y - p.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < 120) {
+            p.x -= dx * 0.02;
+            p.y -= dy * 0.02;
+          }
         }
 
         ctx.beginPath();
@@ -68,6 +79,7 @@ export default function HeroCanvas() {
         ctx.fill();
       }
 
+      const linkDistance = isCoarsePointer ? 80 : 100;
       for (let i = 0; i < particles.length; i++) {
         for (let j = i + 1; j < particles.length; j++) {
           const a = particles[i];
@@ -75,11 +87,11 @@ export default function HeroCanvas() {
           const dx = a.x - b.x;
           const dy = a.y - b.y;
           const dist = Math.sqrt(dx * dx + dy * dy);
-          if (dist < 100) {
+          if (dist < linkDistance) {
             ctx.beginPath();
             ctx.moveTo(a.x, a.y);
             ctx.lineTo(b.x, b.y);
-            ctx.strokeStyle = `rgba(138, 154, 123, ${0.12 * (1 - dist / 100)})`;
+            ctx.strokeStyle = `rgba(138, 154, 123, ${0.12 * (1 - dist / linkDistance)})`;
             ctx.lineWidth = 0.5;
             ctx.stroke();
           }
@@ -102,8 +114,10 @@ export default function HeroCanvas() {
     draw();
 
     window.addEventListener("resize", resize);
-    canvas.addEventListener("pointermove", onMove);
-    canvas.addEventListener("pointerleave", onLeave);
+    if (!isCoarsePointer) {
+      canvas.addEventListener("pointermove", onMove);
+      canvas.addEventListener("pointerleave", onLeave);
+    }
 
     return () => {
       cancelAnimationFrame(animationId);
@@ -116,7 +130,7 @@ export default function HeroCanvas() {
   return (
     <canvas
       ref={canvasRef}
-      className="pointer-events-auto absolute inset-0 z-[2] h-full w-full opacity-60"
+      className="pointer-events-none absolute inset-0 z-[2] h-full w-full opacity-50 sm:pointer-events-auto sm:opacity-60"
       aria-hidden
     />
   );
